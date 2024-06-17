@@ -1,0 +1,189 @@
+:root {
+    --clr-primary-100:hsl(25, 97%, 53%);
+
+    --clr-secondary-100: hsl(0, 0%, 100%);
+    --clr-secondary-200: hsl(217, 12%, 63%);
+    --clr-secondary-300: hsl(213, 19%, 18%);
+    --clr-secondary-400: hsl(216, 12%, 8%);
+    --clr-secondary-500: hsla(215, 27%, 12%, 1);
+
+    /* gradient color */
+    --gradient-1: radial-gradient(circle at top, hsla(0, 0%, 100%, 0.05) 0%, transparent 80%);
+    
+    --ff-base: "Overpass", sans-serif;
+    --ff-accent: ;
+  
+    --fw-regular: 400;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+  
+    --fs-base: 15px;
+  
+  /*
+    1. Use a more-intuitive box-sizing model.
+  */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  .rated-state{display: none;}
+
+  body{
+    background-color: var(--clr-secondary-400);
+    font-size: var(--fs-base);
+    font-family: var(--ff-base);
+    line-height: 1.6;
+    padding: 25px;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+  }
+  .icon{
+    background: var(--clr-secondary-300);
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+  }
+  .icon img {width: 13px;}
+  .card{
+    max-width: 410px;
+    margin-inline: auto;
+    background-image: var(--gradient-1);
+    background-color: var(--clr-secondary-500);
+    color: var(--clr-secondary-100);
+    border-radius: 20px ;
+    padding: 25px;
+  }
+  .title{
+    font-size: 1.6em;
+    margin-block: 13px;
+  }
+  .card-text{
+    color: var(--clr-secondary-200);
+    font-size: 0.93em;
+  }
+  .wraper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 20px;
+  }
+  .rate-btn{
+    background-color: var(--clr-secondary-300);
+    color: var(--clr-secondary-200);
+    font-weight: var(--fw-semi-bold);
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    transition: 100ms ease ;
+  }
+  .rate-btn:is(:hover, :focus-visible) {
+    background-color: var(--clr-secondary-100);
+    color: var(--clr-secondary-400);
+  }
+  .rate-btn.selected {
+    background-color: var(--clr-primary-100);
+    color: var(--clr-secondary-400);
+  }
+  .submit-btn{
+    background-color: var(--clr-primary-100);
+    text-transform: uppercase;
+    font-weight: var(--fw-bold);
+    border-radius: 20px;
+    height: 45px;
+    width: 100%;
+    letter-spacing: 2.5px;
+    transition: 100ms ease ;
+    border: none;
+    margin-block: 10px;
+  }
+  .submit-btn:is(:hover, :focus-visible) {
+    background-color: var(--clr-secondary-100);
+    color: var(--clr-secondary-400);
+  }
+
+.rated .rating-state { display: none; }
+
+.rated { padding-block:  30px 25px; }
+
+.rated .rated-state{
+  display: block;
+  text-align: center;
+}
+.card-img{
+  width: 150px;
+  margin-block-end: 25px;
+  margin-inline: auto;
+}
+.card-subtitle{
+  color: var(--clr-primary-100);
+  background-color: var(--clr-secondary-300);
+  border-radius: 20px;
+  max-width: max-content;
+  padding: 10px 15px ;
+  margin-inline: auto;
+  font-size: 0.87em;
+  line-height: 1;
+}
+.card-subtitle span { display: inline;}
+
+@media(min-width: 768px) {
+  .card{
+    padding: 30px;
+    border-radius: 30px;
+    font-size: 1.1em;
+  }
+  .icon,
+  .rate-btn{
+    width: 50px;
+    height: 50px;
+  }
+
+  .icon img { width: max-content; }
+
+  .rate-btn { line-height: 54px; }
+
+  .rated { padding: 40px 35px 35px; }
+
+  .card-img { width: max-content; }
+
+  .rated .title { margin-block: 30px 15px;}
+}
